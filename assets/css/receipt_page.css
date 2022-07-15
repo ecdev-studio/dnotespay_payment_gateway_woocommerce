@@ -1,0 +1,107 @@
+.dnotespay-wrapper {
+	margin-bottom: 50px;
+}
+.dnotespay-row {
+	padding: 5px 0;
+}
+.dnotespay-row:before {
+	display: table;
+    content: " ";
+    box-sizing: border-box;
+}
+.dnotespay-row:after {
+	clear: both;
+	display: table;
+    content: " ";
+}
+
+.dnotespay-logo {
+	height: auto;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 30px;
+}
+
+
+.dnotespay-label {
+	float: left;
+	font-weight: bold;
+	width: 90px;
+}
+.dnotespay-value {
+	float: left;
+    width: calc(100% - 90px);
+}
+
+.dnotespay-wrapper a {
+	color: #28abe2;
+}
+.dnotespay-wrapper a:focus {
+	outline: none;
+}
+.dnotespay-check-status {
+	padding-left: 30px;
+	font-weight: bold;
+	position: relative;
+}
+.dnotespay-check-status.processing,
+.dnotespay-check-status.processing + a {
+	cursor: wait;
+}
+.dnotespay-check-status:before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	width: 20px;
+	height: 20px;
+	background: url('../images/dnotes-refresh.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50%;
+}
+.dnotespay-check-status.processing:before {
+	-webkit-animation: dnotespaySpin 2s linear infinite;
+  	animation: dnotespaySpin 2s linear infinite;
+}
+@-webkit-keyframes dnotespaySpin {
+  	0% { -webkit-transform: rotate(0deg); }
+  	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes dnotespaySpin {
+ 	0% { transform: rotate(0deg); }
+  	100% { transform: rotate(360deg); }
+}
+
+.dnotespay-click-to-copy {
+	padding-right: 10px;
+}
+.dnotespay-click-to-copy-btn {
+	font-style: italic;
+	text-decoration: underline;
+}
+
+.dnotespay-wrapper:not([data-payment-status="waiting-payment"]):not([data-payment-status="processing-payment"]):not([data-payment-status="success"]):not([data-payment-status="cancelled-payment"]) .dnotespay-payment-status > span,
+.dnotespay-wrapper[data-payment-status="waiting-payment"] .dnotespay-payment-status > span:not(.dnotespay-payment-status-waiting),
+.dnotespay-wrapper[data-payment-status="processing-payment"] .dnotespay-payment-status > span:not(.dnotespay-payment-status-processing),
+.dnotespay-wrapper[data-payment-status="success"] .dnotespay-payment-status > span:not(.dnotespay-payment-status-complete),
+.dnotespay-wrapper[data-payment-status="cancelled-payment"] .dnotespay-payment-status > span:not(.dnotespay-payment-status-cancelled) {
+	display: none !important;
+}
+
+.dnotespay-wrapper[data-payment-status="waiting-payment"] .dnotespay-check-status,
+.dnotespay-wrapper:not([data-payment-status="waiting-payment"]) .dnotespay-just-paid {
+	display: none !important;
+}
+.dnotespay-wrapper .dnotespay-just-paid {
+	display: inline-block;
+	font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+	color: #fff;
+    background-color: #28abe2;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
